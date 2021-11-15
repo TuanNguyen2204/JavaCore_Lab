@@ -3,14 +3,13 @@ package View;
 import Controller.ManageDoctor;
 import Controller.Validate;
 
-public class View {
+public class view {
 
     ManageDoctor manage = new ManageDoctor();
     Validate validate = new Validate();
 
-   
-
-    public void mainMenu() {
+    public void menu() {
+        int choice;
         while (true) {
             System.out.println("========Doctor Management========");
             System.out.println("1. Add Doctor");
@@ -22,10 +21,10 @@ public class View {
             System.out.println("=================================\n");
 
             System.out.print("Choose a option : ");
-            int choice = validate.getIntLimit(1, 6);
+            choice = validate.getIntLimit(1, 6);
 
             switch (choice) {
-                case 1: { 
+                case 1: {
                     System.out.println("---------Add---------");
                     manage.addDoctor();
                     break;
@@ -45,10 +44,11 @@ public class View {
                     manage.searchDoctor();
                     break;
                 }
-                case 5:
+                case 5: {
                     System.out.println("---------Doctor List---------");
                     manage.displayDoctorList();
                     break;
+                }
                 case 6:
                     return;
             }

@@ -1,7 +1,5 @@
 public class Calculator {
 
-    Validate v = new Validate();
-
     int[][] additionMatrix(int[][] matrix1, int[][] matrix2) {
         int row = matrix1.length;
         int col = matrix1[0].length;
@@ -38,6 +36,7 @@ public class Calculator {
     int[][] multiplicationMatrix(int[][] matrix1, int[][] matrix2) {
         //length of row matrix1
         int row1 = matrix1.length;
+        int sum;
         //Get length col matrix1 by get length matrix at 0
         int col1 = matrix1[0].length;
         int row2 = matrix2.length;
@@ -50,21 +49,21 @@ public class Calculator {
             for (int i = 0; i < row1; i++) {
                 //for col matrix 2
                 for (int j = 0; j < col2; j++) {
-                    int sum = 0;
+                    sum = 0;
                     //for col matrix 1
                     for (int k = 0; k < col1; k++) {
                         //sum = value at [i][k] * [k][j]
-                        sum += matrix1[i][k] * matrix2[k][j];
-                        //set value to new matrix [i][j]
-                        matrixResult[i][j] = sum;
+                        sum += matrix1[i][k] * matrix2[k][j];                     
                     }
+                    //set value to new matrix [i][j]
+                    matrixResult[i][j] = sum;
                 }
             }
         }
         return matrixResult;
     }
 
-    void addMatrixManager(int[][] matrix1, int[][] matrix2) {
+    void addMatrixCalculator(int[][] matrix1, int[][] matrix2) {
         System.out.println("------Result------");
         displayMatrix(matrix1);
         System.out.println("+");
@@ -79,7 +78,7 @@ public class Calculator {
         }
     }
 
-    void subMatrixManager(int[][] matrix1, int[][] matrix2) {
+    void subMatrixCalCulator(int[][] matrix1, int[][] matrix2) {
         System.out.println("------Result------");
         displayMatrix(matrix1);
         System.out.println("-");
@@ -94,7 +93,7 @@ public class Calculator {
         }
     }
 
-    void multipleMatrixManager(int[][] matrix1, int[][] matrix2) {
+    void multipleMatrixCalCulator(int[][] matrix1, int[][] matrix2) {
         System.out.println("------Result------");
         displayMatrix(matrix1);
         System.out.println("*");

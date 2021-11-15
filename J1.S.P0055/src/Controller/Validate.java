@@ -5,8 +5,9 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Validate {
+    private final String digit = "^[0-9]+$";
 
-    private final Scanner sc = new Scanner(System.in);
+     public static Scanner sc = new Scanner(System.in);
 
     ArrayList<Doctor> listDoctor = new ArrayList<>();
 
@@ -20,58 +21,70 @@ public class Validate {
                 return input;
             } catch (NumberFormatException e) {
                 System.out.println("Please input number in rage [" + min + ", " + max + "]");
-                System.out.println("Input again: ");
+                System.out.print("Input choice: ");
             }
         }
     }
 
-    public String checkCode() {
-        System.out.println("Input Doctor code: ");
-        String code;
+    //check user input string
+    public String getInputString() {
         while (true) {
-            code = sc.nextLine().trim();
-            if (code.isEmpty()) {
-                System.out.println("Doctor code isn't empty. Enter again: ");
+            String result = sc.nextLine().trim();
+            if (result.isEmpty()) {
+                System.out.println("Not empty");
+                System.out.print("Enter again: ");
+            } else {
+                return result;
             }
-            else return code;
+        }
+    }
+    
+    
+    public String checkInputOfString() {
+        String input;
+        while(true){
+            input = sc.nextLine().trim();
+            if(input.isEmpty()){
+                return null;
+            }
+            else{
+                return input;
+            }
+        }
+    }
+    
+     public int checkInputOfAvailability() {
+         String input;
+        while(true){
+            input = sc.nextLine().trim();
+            if(input.isEmpty()){
+                return -1;
+            }
+            if(!input.matches(digit)){
+                System.out.println("Wrong input");
+                System.out.print("Please reinput: ");
+            }
+            else{
+                return Integer.parseInt(input);
+            }
         }
     }
 
-    public String checkName() {
-        System.out.println("Input Doctor name: ");
-        String name;
-        while (true) {
-            name = sc.nextLine().trim();
-            if (name.isEmpty()) {
-                System.out.println("Doctor name isn't empty. Enter again: ");
-            }
-            else return name;
-        }
-    }
 
-    public String checkSpecialization() {
-        System.out.println("Input Doctor specialization: ");
-        String spec;
-        while (true) {
-            spec = sc.nextLine();
-            if (spec.isEmpty()) {
-                System.out.println("Doctor specialization isn't empty.Enter again: ");
-            }
-            else return spec;
-        }
-    }
-
-    public int checkAvailability() {
+    public int getAvailability() {
         System.out.println("Input availability: ");
         int avail;
-        while (true) {
-            try {
-                avail = Integer.parseInt(sc.nextLine());
-                return avail;
-            } catch (Exception e) {
-                System.out.println("Invalid input. Enter an integer number: ");
+        do {
+            while (!sc.hasNextInt()) {
+                System.out.println("Invalid input. Enter an integer positive number: ");
             }
-        }
+            avail = sc.nextInt();
+            if (avail < 0) {
+                System.out.println("Invalid input. Enter an integer positive number: ");
+            }
+        } while (avail < 0);
+        return avail;
+
     }
 
     public boolean checkDuplicateCode(String code, ArrayList<Doctor> listDoctor) {

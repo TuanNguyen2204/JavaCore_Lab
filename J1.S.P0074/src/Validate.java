@@ -25,7 +25,7 @@ public class Validate {
                 int result = Integer.parseInt(in.nextLine());
                 return result;
             } catch (NumberFormatException ex) {
-                System.err.println("Invalid input. Input again: ");
+                System.err.println("Values of matrix must be the number. Input again: ");
             }
         }
 

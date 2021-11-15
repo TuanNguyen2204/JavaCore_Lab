@@ -19,19 +19,19 @@ public class Main {
                     System.out.println("**Addition**");
                     matrix1 = val.inputMatrix(1);
                     matrix2 = val.inputMatrix(2);
-                    cal.addMatrixManager(matrix1, matrix2);
+                    cal.addMatrixCalculator(matrix1, matrix2);
                     break;
                 case 2:
                     System.out.println("**Subtraction**");
                     matrix1 = val.inputMatrix(1);
                     matrix2 = val.inputMatrix(2);
-                    cal.subMatrixManager(matrix1, matrix2);
+                    cal.subMatrixCalCulator(matrix1, matrix2);
                     break;
                 case 3:
                     System.out.println("**Multiply**");
                     matrix1 = val.inputMatrix(1);
                     matrix2 = val.inputMatrix(2);
-                    cal.multipleMatrixManager(matrix1, matrix2);
+                    cal.multipleMatrixCalCulator(matrix1, matrix2);
                     break;
                 case 4:
                     return;

@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Main {
 
     
-    public String checkInputString(){
+    public String getInputString(){
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter string: ");
         while(true){
@@ -31,7 +31,7 @@ public class Main {
     
     public static void main(String[] args) {
         Main m = new Main();
-        String input = m.checkInputString();
+        String input = m.getInputString();
         System.out.println("Count = " + m.secondHalfLetters(input));
     }
 }
